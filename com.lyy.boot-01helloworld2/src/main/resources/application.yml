@@ -1,0 +1,36 @@
+person:
+  userName: zhangsan
+  boss: true
+  birth: 2019/12/9
+  age: 18
+#  interests: [篮球，足球]
+  interests:
+    - 篮球
+    - 足球
+    - 18
+  animal: [朱梦珂，李杨杨]
+#  score:
+#    english: 80
+#    math: 90
+  score: {english:80,math:90}
+  salarys:
+    - 9999.98
+    - 9999.99
+  pet:
+    name: 朱梦珂
+    weight: 99
+  allPets:
+     sick:
+       - {name: 阿猫,weight: 99.99}
+       - name: 阿狗
+         weight: 88.88
+       - name: 阿虫
+         weight: 77.77
+     health:
+       - {name: 阿花,weight: 199.99}
+       - name: 李杨杨
+         weight: 299.99
+
+
+
+
