@@ -1,12 +1,17 @@
 package com.lyy.boot;
 
+import ch.qos.logback.core.db.DBHelper;
 import com.lyy.boot.bean.Pet;
 import com.lyy.boot.bean.User;
 import com.lyy.boot.config.MyConfig;
 import org.apache.tomcat.util.net.openssl.OpenSSLUtil;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @program: boot-1-helloworld
@@ -19,7 +24,10 @@ import org.springframework.context.ConfigurableApplicationContext;
  * 主程序类
  * @SpringBootApplication：这是一个SpringBoot应用
  */
-@SpringBootApplication
+//@SpringBootApplication
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan("com.lyy.boot")
 public class MainApplication {
     public static void main(String[] args) {
         //返回IOC容器
@@ -29,7 +37,7 @@ public class MainApplication {
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }
-       //3.从容器获取组件
+     /*  //3.从容器获取组件
         Pet tom = run.getBean("tom", Pet.class);
         System.out.println(tom);
 
@@ -44,5 +52,20 @@ public class MainApplication {
         User user01 = run.getBean("user01", User.class);
         Pet tom1 = run.getBean("tom", Pet.class);
         System.out.println(user01.getPet() == tom1);
+//        获取组件
+        String[] beanNamesForType = run.getBeanNamesForType(User.class);
+        System.out.println("=========================");
+        for (String s : beanNamesForType) {
+            System.out.println(s);
+        }
+        DBHelper bean1 = run.getBean(DBHelper.class);
+//        System.out.println(bean1);*/
+//        boolean tom = run.containsBean("tom");
+//        System.out.println("容器中的tom组件"+tom);
+//        boolean user01 = run.containsBean("user01");
+//        System.out.println("容器中user01组件"+user01);
+        String[] beanNamesForType = run.getBeanNamesForType(WebMvcProperties.class);
+        System.out.println("======"+beanNamesForType.length);
     }
+
 }
