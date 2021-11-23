@@ -1,6 +1,10 @@
-#spring:
+spring:
 #  mvc:
 #    static-path-pattern: /res/**
-###  web:
-##    resources:
-##      static-locations: [classpath:/abc/]
+  web:
+    resources:
+      static-locations: [classpath:/abc/]
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
