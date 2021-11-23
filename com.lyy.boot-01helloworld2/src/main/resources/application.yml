@@ -1,5 +1,7 @@
 person:
-  userName: zhangsan
+  #单引号会将\n作为字符串输出，双引号会将\n  作为换行输出
+  #双引号不会转义，单引号会转义
+
   boss: true
   birth: 2019/12/9
   age: 18
@@ -30,6 +32,7 @@ person:
        - {name: 阿花,weight: 199.99}
        - name: 李杨杨
          weight: 299.99
+  user-name: zhangsan
 
 
 
