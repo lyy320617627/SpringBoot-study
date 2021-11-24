@@ -8,3 +8,6 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+server:
+  servlet:
+    context-path: /world
