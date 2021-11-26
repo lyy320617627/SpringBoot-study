@@ -1,10 +1,12 @@
 package com.lyy.admin.controller;
 
 import com.lyy.admin.bean.User;
+import com.lyy.admin.exception.UserTooManyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,8 +27,9 @@ public class TableController {
         //表格内容的遍历
         List<User> users = Arrays.asList(new User("zhangsan", "123456"), new User("lisi", "123444"), new User("wangwu", "aaaaaa"));
         model.addAttribute("users",users);
-
-
+if (users.size()>3){
+    throw new UserTooManyException();
+}
         return "table/dynamic_table";
     }
     @GetMapping("/responsive_table")
