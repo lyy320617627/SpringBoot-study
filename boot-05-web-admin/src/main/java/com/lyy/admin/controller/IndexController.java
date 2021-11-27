@@ -1,6 +1,10 @@
 package com.lyy.admin.controller;
 
+import com.lyy.admin.bean.Account;
+import com.lyy.admin.bean.City;
 import com.lyy.admin.bean.User;
+import com.lyy.admin.service.AccountService;
+import com.lyy.admin.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -8,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +27,29 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
     @Autowired
     JdbcTemplate jdbcTemplate;
+    @Autowired
+    AccountService accountService;
+    @Autowired
+    CityService cityService;
+    @PostMapping("/city")
+    public City saveCity(City city){
+        cityService.saveCity(city);
+        return city;
+    }
+    @ResponseBody
+    @GetMapping("/city")
+    public City getCityById(@RequestParam("id") Long id){
+     return cityService.getById(id);
+    }
+
+
+    @ResponseBody
+    @GetMapping("/acct")
+    public Account getById(@RequestParam("id") Long id){
+
+        return accountService.getAcctById(id);
+
+    }
     @ResponseBody
     @GetMapping("/sql")
     public String queryFormDb(){

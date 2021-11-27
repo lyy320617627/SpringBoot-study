@@ -24,8 +24,13 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
-
   jdbc:
     template:
       query-timeout: 3
+#
+mybatis:
+#  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:    #指定mybatis全局配置文件中的相关配置项
+    map-underscore-to-camel-case: true
 #    type: com.zaxxer.hikari.HikariDataSource
