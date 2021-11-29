@@ -36,3 +36,25 @@ mybatis:
   configuration:    #指定mybatis全局配置文件中的相关配置项
     map-underscore-to-camel-case: true
 #    type: com.zaxxer.hikari.HikariDataSource
+#management是所有acctuator的配置
+management:
+  endpoints:
+    enabled-by-default: true #m默认开启所有的监控端点
+    web:
+      exposure:
+        include: '*'  #以web方式暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    info:
+      enabled: true
+    beans:
+      enabled: true
+    metrics:
+      enabled: true
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.version@
