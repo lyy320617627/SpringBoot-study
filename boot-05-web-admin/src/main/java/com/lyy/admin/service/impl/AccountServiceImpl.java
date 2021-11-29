@@ -18,4 +18,8 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountMapper accountMapper;
 
+    @Override
+    public Account getAcctById(Long id) {
+        return null;
+    }
 }

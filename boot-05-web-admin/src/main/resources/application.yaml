@@ -11,7 +11,7 @@ spring:
         login-username: admin
         login-password: admin
         reset-enable: false
-      web-stat-filter:
+      web-stat-filter:ujk ,l
         enabled: true
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
@@ -27,6 +27,8 @@ spring:
   jdbc:
     template:
       query-timeout: 3
+  redis:
+    url: redis://lfy123456@sdfasdfasf.com:6379
 #
 mybatis:
 #  config-location: classpath:mybatis/mybatis-config.xml
