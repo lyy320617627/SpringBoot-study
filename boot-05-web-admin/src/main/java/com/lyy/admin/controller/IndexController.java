@@ -5,6 +5,7 @@ import com.lyy.admin.bean.City;
 import com.lyy.admin.bean.User;
 import com.lyy.admin.service.AccountService;
 import com.lyy.admin.service.CityService;
+import com.lyy.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,8 @@ import javax.servlet.http.HttpSession;
  **/
 @Controller
 public class IndexController {
+    @Autowired
+    UserService userService;
     @Autowired
     JdbcTemplate jdbcTemplate;
     @Autowired
